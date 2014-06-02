@@ -17,7 +17,7 @@ module Ruboty
       end
 
       def say(body)
-        client.update(body)
+        client.update(body[:body])
       end
 
       private
