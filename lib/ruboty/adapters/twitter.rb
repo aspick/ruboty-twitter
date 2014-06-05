@@ -20,7 +20,7 @@ module Ruboty
         puts body
         if body[:to]
           text = "@#{body[:to].screen_name} #{body[:body]}"
-          client.update(text, {in_reply_to_status_id: body[:original].id})
+          client.update(text, {in_reply_to_status_id: body[:original][:original].id})
           puts "say #{text}"
         else
           client.update(body[:body])
