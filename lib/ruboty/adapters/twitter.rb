@@ -20,8 +20,10 @@ module Ruboty
         if body[:from]
           text = "@#{body[:from].screen_name} #{body[:body]}"
           client.update(text, {in_reply_to_status_id: body[:original].id})
+          puts "say #{text}"
         else
           client.update(body[:body])
+          puts "say #{body[:body]}"
         end
       end
 
