@@ -33,6 +33,7 @@ module Ruboty
         stream.user do |tweet|
           case tweet
           when ::Twitter::Tweet
+            puts tweet
             robot.receive(body: tweet.text, from: tweet.user, original: tweet)
           end
         end
