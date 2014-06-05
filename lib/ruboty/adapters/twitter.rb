@@ -18,8 +18,8 @@ module Ruboty
 
       def say(body)
         puts body
-        if body[:from]
-          text = "@#{body[:from].screen_name} #{body[:body]}"
+        if body[:to]
+          text = "@#{body[:to].screen_name} #{body[:body]}"
           client.update(text, {in_reply_to_status_id: body[:original].id})
           puts "say #{text}"
         else
