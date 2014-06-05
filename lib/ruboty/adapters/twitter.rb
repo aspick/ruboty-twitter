@@ -17,6 +17,7 @@ module Ruboty
       end
 
       def say(body)
+        puts body
         if body[:from]
           text = "@#{body[:from].screen_name} #{body[:body]}"
           client.update(text, {in_reply_to_status_id: body[:original].id})
@@ -33,7 +34,6 @@ module Ruboty
         stream.user do |tweet|
           case tweet
           when ::Twitter::Tweet
-            puts tweet
             robot.receive({body: tweet.text, from: tweet.user, original: tweet})
           end
         end
