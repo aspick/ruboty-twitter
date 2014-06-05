@@ -34,7 +34,7 @@ module Ruboty
           case tweet
           when ::Twitter::Tweet
             puts tweet
-            robot.receive(body: tweet.text, from: tweet.user, original: tweet)
+            robot.receive({body: tweet.text, from: tweet.user, original: tweet})
           end
         end
       end
